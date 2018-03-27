@@ -1,5 +1,5 @@
 // chap2 partie1
-/*
+
 // Bonjour amélioré
 
 function direBonjour(prenom, nom) {
@@ -65,12 +65,12 @@ function aire(rayon) {
 var rayon = Number(prompt("Saisir le rayon du cercle"));
 console.log(perimetre(rayon));
 console.log(aire(rayon));
-*/
+
 
 // chap2 partie2
 
 // Manipulez les chaines de caractères
-/*
+
 function minuscules(mot) {
     return mot.toLowerCase();
 }
@@ -89,7 +89,7 @@ function voyellesConsonnes(mot) {
     }
     return "Il contient " + voyelles + " voyelles(s) et " + consonnes + " consonne(s)"
 }
-*/
+
 function inverser(mot) {
     var motInverse = "";
     for (var i = (mot.length - 1); i >= 0; i--) {
@@ -97,7 +97,7 @@ function inverser(mot) {
     }
     return motInverse;
 }
-/*
+
 function palindrome(mot) {
     mot = minuscules(mot);
     var check = inverser(mot);
@@ -135,21 +135,21 @@ function trouverLettreLeet(lettre) {
                 return lettre;
         }
 }
-*/
+
 var mot = prompt("Ecrire un mot");
-/*
+
 console.log("Il s'écrit en minuscules " + minuscules(mot));
 console.log("Il s'écrit en majuscules " + majuscules(mot));
 console.log(voyellesConsonnes(mot));
-*/
+
 console.log("Il s'écrit à l'envers " + inverser(mot));
-/*
+
 console.log(palindrome(mot));
 console.log("Il s'écrit en leet speak " + convertirEnLeetSpeak(mot));
-*/
+
 
 // chap2 partie3
-/*
+
 // Mini-jeu
 var Personnage = {
     // Initialise le personnage
@@ -281,10 +281,10 @@ compte.crediter(credit);
 var debit = Number(prompt("Entrez le montant à débiter :"));
 compte.debiter(debit);
 console.log(compte.decrire());
-*/
+
 
 // chap2 partie4
-/*
+
 // Modélisation de plusieurs chiens
 var Chien = {
     init: function (nom, race, taille) {
@@ -446,10 +446,10 @@ compte2.ajouterInterets();
 console.log("Voici l'état final des comptes après transfert et calcul des intérêts :");
 console.log(compte1.decrire());
 console.log(compte2.decrire());
-*/
+
 
 // chap2 partie5
-/*
+
 // Les mousquetaires
 var mousquetaires = ["Arthos", "Porthos", "Aramis"];
 console.log("Voici les trois mousquetaires :");
@@ -563,4 +563,3 @@ for(var i = 0; i < chiens.length; i++) {
     console.log(chiens[i].nom + " est un " + chiens[i].race + " mesurant " + chiens[i].taille + "cm." +
     "Il aboie : " + chiens[i].aboyer());
 }
-*/
