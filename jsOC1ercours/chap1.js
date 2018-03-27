@@ -1,5 +1,5 @@
 // chap1 partie4
-/*
+
 console.log("Martin");
 console.log(22);
 
@@ -7,11 +7,10 @@ console.log(6 + 3);
 console.log(6 - 3);
 console.log(6 * 3);
 console.log(6 / 3);
-*/
 
 
 // chap1 partie 5
-/*
+
 // Bonjour amélioré
 var prenom = prompt("Entrez votre prénom !");
 var nom = prompt("Entrez votre nom !");
@@ -37,10 +36,10 @@ nombre2 = nombre1;
 nombre1 = temp;
 console.log(nombre1);
 console.log(nombre2);
-*/
+
 
 // chap1 partie 6
-/*
+
 // Jour suivant
 var jour = prompt ("Quel jour sommes-nous aujourd'hui ?");
 switch (jour) {
@@ -129,10 +128,10 @@ if (secondes === 59) {
     secondes++;
 }
 console.log("Dans une seconde, il sera " + heures + " heures, " + minutes + " minutes et " + secondes + " secondes");
-*/
+
 
 // chap1 partie 7
-/*
+
 // Tournez manège
 for (var i = 1; i < 11; i++) { 
     console.log("C'est le tour n°" + i);
@@ -197,4 +196,3 @@ for (var i = 1; i < 101; i++) {
         console.log(i);
     }
 }
-*/
