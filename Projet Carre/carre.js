@@ -17,7 +17,7 @@ function sumColumn(table, numberOfColumns, numberOfLines) {
                 }
                 if ((numberOfLines === j + 1) && (numberOfColumns === k + 1)) {
                     table[numberOfLines][i] = sum;
-                }   
+                } 
             }
         }
     }
@@ -26,7 +26,22 @@ function sumColumn(table, numberOfColumns, numberOfLines) {
 // Sum of the diagonale [0][0] to [numberOfColumns - 1][numberOfLines - 1] if numberOfLines === numberOfColumns
 // Add this sum in [numberOfLines][numberOfColumns]
 function sumDiagonal(table, numberOfColumns, numberOfLines) {
-
+    if (numberOfColumns === numberOfLines) {
+        let sum = 0;
+        for (let i = 0; i < numberOfLines; i++) {
+            for (let j = 0; j < numberOfColumns; j++) {
+                if (i === j) {
+                    sum = sum + table[i][j];
+                }
+                if ((numberOfLines === i + 1) && (numberOfColumns === j + 1)) {
+                    table[numberOfLines][numberOfColumns] = sum;
+                }   
+            }
+        }
+    }
+    else {
+        return null;
+    }
 }
 
 // Sum of every boxes in a line
@@ -54,17 +69,12 @@ function sumOfTable(table, numberOfColumns, numberOfLines) {
     return sum;
 }
 
-// Add a box to the table
-function addBox(box) {
-    // box.push();
-}
-
 // Generate the table
 function generateTable(table, numberOfColumns, numberOfLines) {
     for (let i = 0; i < numberOfLines; i++) {
         table[i] = new Array();
         for (let j = 0; j < numberOfColumns; j++) {
-            table[i][j] = getRandomInteger(5);
+            table[i][j] = getRandomInteger(10);
         }
     }
     // Define a new Array() for methods :
@@ -78,20 +88,16 @@ function displayFinalTable() {
     let myTable = new Array();
     // Define the number of boxes
     const numberOfColumns = 3; 
-    const numberOfLines = 3;
+    const numberOfLines = 7;
     // Execute functions
     generateTable(myTable, numberOfColumns, numberOfLines);
-    
     sumColumn(myTable, numberOfColumns, numberOfLines);
     sumLine(myTable, numberOfColumns, numberOfLines);
     sumDiagonal(myTable, numberOfColumns, numberOfLines);
 
-    // console.log(sumOfTable(myTable, numberOfColumns, numberOfLines));
 
     return myTable;
-
 };
 
 
 console.log(displayFinalTable());
-
