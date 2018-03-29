@@ -4,28 +4,36 @@ function getRandomInteger(monNombreMaximum) {
 }
 
 // Sum of every boxes in a column
-// Add this sum in [5][i]
+// Add this sum in [numberOfLines + 1][k]
 // index is the number of the column
-function sumColumn(table, index) {
-    table[5] = new Array();
-    let sum = 0;
-    for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 5; j++) {
-            if (index === j) {
-                console.log("Mon i : " + i + " Mon j : " + j);
-                sum = sum + table[i][index];
-                console.log(sum);
-                // if (index === i) {
-                    // console.log("Coucou");
-                    // table[j + 1][index] = sum;
-                // }
+function sumColumn(table, numberOfColumns, numberOfLines) {
+    table[numberOfLines] = new Array();
+    for (let i = 0; i < numberOfColumns; i++) { 
+        let sum = 0;
+        for (let j = 0; j < numberOfLines; j++) {
+            for (let k = 0; k < numberOfColumns; k++) {
                 
-            }
-            if (i === 4 && j === 4) {
+                table[j][k] = getRandomInteger(5);
                 
+                /*
+                // console.log("Mon j : " + j + " Mon k : " + k);
+                if (i === k) {
+                    // console.log("Mon j : " + j + " Mon k : " + k);
+                    sum = sum + table[j][k];
+                }
+
+                if ((numberOfLines === j + 1) && (numberOfColumns === k + 1)) {
+                    console.log("Mon i : " + i + " Mon j : " + j + " Mon k : " + k);
+                    console.log(sum);
+                    
+                    console.log(table[numberOfLines][i]);
+                    // table[numberOfLines][i] = sum;
+                }
+                */
             }
         }
-       
+        
+        
     }
  
     
@@ -34,27 +42,28 @@ function sumColumn(table, index) {
 // Sum of the diagonale [0][0] to [4][4]
 // Add this sum in [5][5]
 function sumDiagonal(table) {
-
+  //
 }
 
 // Sum of every boxes in a line
-// Add this sum in [i][5]
-// index is the number of the line
-function sumLine(table, index) {
-    let sum = 0;
-    for (let i = 0; i < 5; i++) {
-        sum = sum + table[index][i];
-        if (i === 4 ) {
-            table[index][i + 1] = sum;
+// Add this sum in [i][numberOfColumns + 1]
+function sumLine(table, numberOfColumns, numberOfLines) {
+    for (let i = 0; i < numberOfLines; i++) { 
+        let sum = 0;
+        for (let j = 0; j < numberOfColumns; j++) {
+            sum = sum + table[i][j];
+            if (j === numberOfColumns - 1) {
+                table[i][j + 1] = sum;
+            }
         }
     }
 }
 
 // Sum of boxes
-function sumOfTable(table) {
+function sumOfTable(table, numberOfColumns, numberOfLines) {
     let sum = 0;
-    for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 5; j++) {
+    for (let i = 0; i < numberOfLines; i++) {
+        for (let j = 0; j < numberOfColumns; j++) {
             sum = sum + table[i][j]; 
         }
     }
@@ -67,29 +76,32 @@ function addBox(box) {
 }
 
 // Generate the table
-function generateTable(table) {
-    for (let i = 0; i < 5; i++) {
+function generateTable(table, numberOfColumns, numberOfLines) {
+    for (let i = 0; i < numberOfLines; i++) {
         table[i] = new Array();
-        for (let j = 0; j < 5; j++) {
-            table[i][j] = getRandomInteger(10);
+        for (let j = 0; j < numberOfColumns; j++) {
+            table[i][j] = getRandomInteger(5);
         }
     }
+    // Define a new Array() for methods :
+    // function sumColumn(table, index), sumDiagonal(table)
+    
 }
 
 // Call this function in console.log
 // and the other functions do the rest
 function displayFinalTable() {
     let myTable = new Array();
-    generateTable(myTable);
-    
-    // console.log(sumOfTable(myTable));
-    for (let i = 0; i < 5; i++) {
-        
-        sumColumn(myTable, i);
-        sumLine(myTable, i);
-        
-    }
-    
+    // Define the number of boxes
+    const numberOfColumns = 3; 
+    const numberOfLines = 3;
+    generateTable(myTable, numberOfColumns, numberOfLines);
+    // for (let i = 0; i < 5; i++) {
+        sumColumn(myTable, numberOfColumns, numberOfLines);
+        sumLine(myTable, numberOfColumns, numberOfLines);
+    // }
+
+    // console.log(sumOfTable(myTable, numberOfColumns, numberOfLines));
 
     return myTable;
 
