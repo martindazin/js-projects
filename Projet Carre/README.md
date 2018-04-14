@@ -4,7 +4,7 @@ Fonctions faites :
 - sumColumn
 - sumDiagonal
 - sumLine
-- sumTable
+- sumOfTable
 -
 
 Fonctions à faire :
