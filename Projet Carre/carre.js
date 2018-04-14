@@ -3,7 +3,7 @@ function generateTable(table, numberOfColumns, numberOfLines) {
     for (let i = 0; i < numberOfLines; i++) {
         table[i] = new Array();
         for (let j = 0; j < numberOfColumns; j++) {
-            table[i][j] = getRandomInteger(10);
+            table[i][j] = getRandomInteger(5);
         }
     }
     // Define a new Array() for methods :
@@ -29,6 +29,21 @@ function sumColumn(table, numberOfColumns, numberOfLines) {
                 if ((numberOfLines === j + 1) && (numberOfColumns === k + 1)) {
                     table[numberOfLines][i] = sum;
                 } 
+            }
+        }
+    }
+}
+
+// Sum of every boxes in a column
+// Add this sum in [numberOfLines][indexOfColumn]
+// In only two loops
+function sumColumn2(table, numberOfColumns, numberOfLines) {
+    for (let i = 0; i < numberOfColumns; i++) {
+        let sum = 0;
+        for (let j = 0; j < numberOfLines; j++) {
+            sum = sum + table[j][i];
+            if (j === numberOfLines - 1) {
+                table[numberOfLines][i] = sum;
             }
         }
     }
@@ -92,11 +107,12 @@ function sumOfTable(table, numberOfColumns, numberOfLines) {
 function displayFinalTable() {
     let myTable = new Array();
     // Define the number of boxes
-    const numberOfColumns = 5; 
-    const numberOfLines = 5;
+    const numberOfColumns = 3; 
+    const numberOfLines = 3;
     // Execute functions
     generateTable(myTable, numberOfColumns, numberOfLines);
-    sumColumn(myTable, numberOfColumns, numberOfLines);
+    //sumColumn(myTable, numberOfColumns, numberOfLines);
+    sumColumn2(myTable, numberOfColumns, numberOfLines);
     sumDiagonal(myTable, numberOfColumns, numberOfLines);
     sumLine(myTable, numberOfColumns, numberOfLines);
     sumOfTable(myTable, numberOfColumns, numberOfLines)
